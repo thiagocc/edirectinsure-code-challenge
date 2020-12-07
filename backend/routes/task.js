@@ -1,6 +1,5 @@
 const express = require('express');
 const controller = require('../controllers/task');
-const verifyAdmin = require('../middlewares/verifyAdmin').verifyAdmin;
 const verifyJWT = require('../middlewares/verifyJWT').verifyJWT;
 const router = express.Router();
 
@@ -69,7 +68,7 @@ router.route('').post(verifyJWT, controller.save);
  *      200:
  *        description: Retrieve All Tasks
  */
-router.route('').get(verifyJWT, verifyAdmin, controller.find);
+router.route('').get(verifyJWT, controller.find);
 
 /**
  * @swagger
