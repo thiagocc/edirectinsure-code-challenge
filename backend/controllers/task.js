@@ -118,7 +118,7 @@ exports.done = async (req, res) => {
     const query = { _id: req.params.id, isDone: false };
 
     if (!req.user.isAdmin) {
-        query.createdBy = req.params.id;
+        query.createdBy = req.user.id;
     }
 
     const update = Object.assign(
@@ -186,7 +186,7 @@ exports.updateOne = async (req, res) => {
     const query = { _id: req.params.id, isDone: false };
 
     if (!req.user.isAdmin) {
-        query.createdBy = req.params.id;
+        query.createdBy = req.user.id;
     }
 
     const update = Object.assign(
@@ -235,7 +235,7 @@ exports.deleteOne = async (req, res) => {
     const query = { _id: req.params.id };
 
     if (!req.user.isAdmin) {
-        query.createdBy = req.params.id;
+        query.createdBy = req.user.id;
     }
 
     Task.deleteOne(query).exec((error, doc) => {

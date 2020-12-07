@@ -89,7 +89,7 @@ exports.findOne = (req, res) => {
     const query = { _id: req.params.id };
 
     if (!req.user.isAdmin) {
-        query.createdBy = req.params.id;
+        query.createdBy = req.user.id;
     }
 
     Project.findOne(query)
@@ -144,7 +144,7 @@ exports.updateOne = async (req, res) => {
     const query = { _id: req.params.id };
 
     if (!req.user.isAdmin) {
-        query.createdBy = req.params.id;
+        query.createdBy = req.user.id;
     }
 
     const update = Object.assign(
@@ -193,7 +193,7 @@ exports.deleteOne = async (req, res) => {
     const query = { _id: req.params.id };
 
     if (!req.user.isAdmin) {
-        query.createdBy = req.params.id;
+        query.createdBy = req.user.id;
     }
 
     Project.deleteOne(query).exec((error, doc) => {
