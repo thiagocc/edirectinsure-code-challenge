@@ -5,6 +5,10 @@
 
 Edirectinsure ToDo List - Code Challenge
 
+## ScreenShot
+
+![alt text](https://github.com/thiagocc/edirectinsure-code-challenge/blob/master/print.png?raw=true)
+
 ## Installation
 
 Make sure you have MongoDB and Node.js/NPM installed (LTS versions is recommended). 
